@@ -1,0 +1,36 @@
+<header class="header bg-white sticky top-0 z-10">
+    <div class="header-wrap flex mx-4 h-20">
+        {{!-- Logo --}}
+        <div class="logo flex flex-grow items-center">
+            {{#if @site.logo}}
+                <a class="logo-link-img h-8 md:h-10" href="{{@site.url}}"><img class="logo-img h-full" src="{{img_url @site.logo size="m"}}" alt="{{@site.title}}"/></a>
+            {{else}}
+                <a class="logo-link" href="{{@site.url}}"><span class="logo-txt text-4xl font-bold text-black leading-none">{{@site.title}}</span></a>
+            {{/if}}
+        </div>
+
+        {{!-- navbar --}}
+        <nav class="navbar hidden justify-center items-center lg:flex">{{navigation}}</nav>
+
+        <div class="header-right flex flex-grow justify-end">
+            {{!-- Facebook & Twitter - partials/witget/witget-social-media.hbs --}}
+            {{!-- {{> "widget/witget-social-media"}} --}}
+
+            <ul class="flex items-center ml-3 space-x-5">
+                {{!-- Toggle Search --}}
+                <li class="search-toggle cursor-pointer" data-ghost-search><svg class="icon"><use xlink:href="#icon-search"></use></svg></li>
+                {{#if @site.members_enabled}}
+                <li>
+                    {{#unless @member}}
+                        <a class="button is-primary" href="#/portal/signup" data-portal="signup">{{t "Subscribe"}}</a>
+                    {{else}}
+                        <a class="button is-primary" href="#/portal/account" data-portal="account">{{t "Account"}}</a>
+                    {{/unless}}
+                </li>
+                {{/if}}
+                {{!-- Toggle Menu --}}
+                <li class="js-menu-toggle menu-toggle cursor-pointer"><svg class="icon is-stroke"><use xlink:href="#icon-menu"></use></svg></li>
+            </ul>
+        </div>
+    </div>
+</header>

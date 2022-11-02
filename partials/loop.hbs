@@ -1,0 +1,8 @@
+<div class="feed-entry-content">
+    <div class="story-feed grid md:grid-cols-2 lg:grid-cols-3">
+        {{#foreach posts}}
+            {{!-- markup for each stories - partials/story/story.hbs --}}
+            {{> "story/story"}}
+        {{/foreach}}
+    </div>
+</div>
